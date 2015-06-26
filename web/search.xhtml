@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+    <h:form>
+        <font size="10">Przychodnia</font><br/>
+        <font size="3"><i>Projekt JAZ PJATK</i></font><br/>
+    </h:form>    
+        
+    <h:form>  
+        <p:growl id="messages"/>
+        <p:menubar>
+            <p:menuitem value="Wyszukiwarka" url="search.xhtml" icon="ui-icon-search" />
+            <p:menuitem value="Dodaj Pacjenta" url="add.xhtml" icon="ui-icon-plusthick" />
+            <f:facet name="options">
+                <p:commandButton type="button" value="Narzędzia" icon="ui-icon-extlink" />
+            </f:facet>
+        </p:menubar>
+    </h:form>
+        <br/><br/><br/><br/>
+        
+        <h:form id="patientsTable">
+            <p:dataTable  var="patient" value="#{patientBean.patients}">
+                <p:column filterBy="#{patient.name}" sortBy="#{patient.name}" headerText="Imię" filterMatchMode="contains">
+                    <h:outputText value="#{patient.name}" />
+                </p:column>
+
+                <p:column filterBy="#{patient.surname}" sortBy="#{patient.surname}" headerText="Nazwisko" filterMatchMode="contains" >
+                    <h:outputText value="#{patient.surname}" />
+                </p:column>
+
+                <p:column filterBy="#{patient.pesel}" sortBy="#{patient.pesel}" headerText="Pesel" filterMatchMode="contains">
+                    <h:outputText value="#{patient.pesel}" />
+                </p:column>
+                
+                <p:column filterBy="#{patient.birthDayToShow}" sortBy="#{patient.birthDay}" headerText="Data urodzin" filterMatchMode="contains">
+                    <h:outputText value="#{patient.birthDayToShow}" />
+                </p:column>
+
+                <p:column filterBy="#{patient.weight}" sortBy="#{patient.weight}" headerText="Waga" filterMatchMode="contains">
+                    <h:outputText value="#{patient.weight}" />
+                </p:column>
+                
+                <p:column filterBy="#{patient.height}" sortBy="#{patient.height}" headerText="Wzrost" filterMatchMode="contains">
+                    <h:outputText value="#{patient.height}" />
+                </p:column>
+                
+                <p:column filterBy="#{patient.regDateToShow}" sortBy="#{patient.regDate}" headerText="Data dodania" filterMatchMode="contains">
+                    <h:outputText value="#{patient.regDateToShow}" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+        
+        
+  
+    </h:body>
+</html>
+
