@@ -43,7 +43,7 @@ public class PatientBean implements Serializable{
    }
    public String addExamplePatients(){
        patientManager.addExamplePatients();
-       return "homePage.xhtml";
+       return "home.xhtml";
    }
     public String addPatient(){
        patientManager.addPatient(getPatient());
